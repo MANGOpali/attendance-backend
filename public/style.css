@@ -1,0 +1,45 @@
+* { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+body { margin: 0; padding: 20px; background: #f4f6f9; color: #333; }
+h2 { margin: 0; color: #2c3e50; }
+
+/* top bar */
+.topbar { display:flex; justify-content:space-around; align-items:center; margin-bottom:15px; gap:10px; }
+.brand { display:flex; align-items:center; gap:10px; }
+.user-area { display:flex; align-items:center; gap:8px; }
+
+/* modal */
+.modal { position:fixed; left:0; top:0; right:0; bottom:0; background:rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; z-index:1000; }
+.modal-content { background:#fff; padding:20px; border-radius:8px; width:320px; box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+.modal-content input, .modal-content select, .modal-content button { width:100%; margin:6px 0; }
+
+/* cards and form */
+.container { max-width:980px; margin:0 auto; }
+.card { background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08); margin-bottom:20px; }
+input, select, button { padding:8px 10px; margin:5px 5px 5px 0; border-radius:5px; border:1px solid #ccc; font-size:14px; }
+button { background:#3498db; color:#fff; border:none; cursor:pointer; }
+button:hover { background:#2980b9; }
+
+/* language button */
+.lang-btn { background:#2ecc71; color:#fff; border:none; padding:8px 10px; border-radius:5px; cursor:pointer; }
+.lang-btn:hover { background:#27ae60; }
+
+/* export button */
+#exportBtn { background:#16a085; }
+#exportBtn:hover { background:#13856f; }
+
+/* table */
+table { width:100%; border-collapse:collapse; background:#fff; }
+thead { background:#3498db; color:#fff; }
+th, td { padding:10px; text-align:left; border-bottom:1px solid #eee; }
+tr:hover { background:#f1f7ff; }
+.status-present { color:green; font-weight:bold; }
+.status-late { color:orange; font-weight:bold; }
+.status-absent { color:red; font-weight:bold; }
+
+/* ensure picker popup is visible above modal */
+.nepali-datepicker, .ndp-popup { z-index: 99999 !important; }
+
+/* responsive */
+@media (max-width:600px) {
+  input, select, button { width:100%; margin-bottom:8px; }
+}

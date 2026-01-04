@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Attendance System</title>
+
+  <!-- Nepali Date Picker CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sajanm/nepali-date-picker/dist/nepali.datepicker.v5.0.0.min.css">
+  <link rel="stylesheet" href="nepali.datepicker.v5.min.css">
+
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="brand">
+    <h2 id="title">Attendance System</h2>
+  </div>
+  <div class="user-area">
+    <button id="langBtn" class="lang-btn">EN / NP</button>
+    <span id="currentUserDisplay">Not signed in</span>
+    <button id="loginBtn">Login</button>
+    <button id="logoutBtn" style="display:none">Logout</button>
+  </div>
+</div>
+
+<!-- Auth modal -->
+<div id="authModal" class="modal" style="display:none">
+  <div class="modal-content">
+    <h3 id="authTitle">Login</h3>
+
+    <div id="authForms">
+      <div id="loginForm">
+        <input id="loginEmail" type="email" placeholder="Email" />
+        <input id="loginPassword" type="password" placeholder="Password" />
+        <button id="doLogin">Login</button>
+        <p id="noAccountText">Don't have an account? <a href="#" id="showRegister">Register</a></p>
+      </div>
+
+      <div id="registerForm" style="display:none">
+        <input id="regName" type="text" placeholder="Full name" />
+        <input id="regEmail" type="email" placeholder="Email" />
+        <input id="regPassword" type="password" placeholder="Password" />
+        <label for="regRole" id="roleLabel">Role</label>
+        <select id="regRole">
+          <option value="Employee">Employee</option>
+          <option value="Manager">Manager</option>
+          <option value="Admin">Admin</option>
+        </select>
+        <button id="doRegister">Register</button>
+        <p id="haveAccountText">Already have an account? <a href="#" id="showLogin">Login</a></p>
+      </div>
+    </div>
+
+    <button id="closeAuth">Close</button>
+  </div>
+</div>
+
+<!-- Main app -->
+<div class="container">
+
+  <div class="card">
+    <h3 id="empHeader">Employee</h3>
+    <input id="empName" type="text" placeholder="Employee name" />
+    <button id="addEmpBtn">Add Employee</button>
+    <div id="totalEmp" aria-live="polite">Total: 0</div>
+  </div>
+
+  <div class="card">
+    <h3 id="attHeader">Attendance</h3>
+    <select id="empSelect" aria-label="Select employee"></select>
+    <input id="nepaliDate" type="text" placeholder="Select Nepali Date (BS)" readonly />
+    <button id="markBtn">Mark Attendance</button>
+    <button id="exportBtn">Export CSV</button>
+  </div>
+
+  <div class="card dashboard">
+    <span id="presentToday">🟢 0</span>
+    <span id="lateToday">🟡 0</span>
+    <span id="absentToday">🔴 0</span>
+  </div>
+
+  <div class="card">
+    <table aria-label="Attendance records">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date (BS)</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Marked By</th>
+        </tr>
+      </thead>
+      <tbody id="attendanceTable"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- Scripts: jQuery -> Nepali Date Picker v5 -> App script -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sajanm/nepali-date-picker/dist/nepali.datepicker.v5.0.0.min.js"></script>
+<script src="nepali.datepicker.v5.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

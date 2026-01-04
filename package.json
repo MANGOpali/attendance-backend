@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node src/server.js",
-    "migrate": "knex migrate:latest",
-    "seed": "knex seed:run"
+  "start": "node src/server.js",
+  "migrate": "knex migrate:latest",
+  "seed": "knex seed:run",
+  "render-build": "npm run migrate && npm run seed"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
